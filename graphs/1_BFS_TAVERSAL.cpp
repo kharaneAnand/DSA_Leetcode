@@ -28,3 +28,8 @@ vector<int>bfsTraversal(vector<vector<int>>&adj){
 
     return bfs ;
 }
+
+
+// space complexity :- 0(3n) = 0(n) ;
+// time complexity :- 0(N) + 0(2E) ;
+
