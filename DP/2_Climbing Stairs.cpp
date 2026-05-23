@@ -1,4 +1,4 @@
-// not going to explain anyu thing same fibonacci code same to same but insted of dp[0] try dp[2] = 2
+// not going to explain anything same fibonacci code same to same but insted of  base case dp[0] try dp[2] = 2
 //  just that base case change 
 
 // leetcode - 70 
