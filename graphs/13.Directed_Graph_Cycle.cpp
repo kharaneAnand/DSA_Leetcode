@@ -63,6 +63,49 @@ public:
     }
 }; 
 
+// using the topological sort using the kahans algorithm ;
+class Solution {
+  public:
+    bool isCyclic(int V, vector<vector<int>> &edges) {
+        // code here
+        vector<int>indgree(V ,0) ;
+        vector<vector<int>>adjlist(V) ; 
+        vector<int>ans ;
+        
+        for(int i=0 ; i<edges.size() ; i++){
+            int u = edges[i][0] ;
+            int v = edges[i][1] ;
+            
+            adjlist[u].push_back(v) ;
+            indgree[v]++ ;
+        }
+        
+        queue<int>qe ;
+        for(int i=0 ; i<V ; i++){
+            if(indgree[i] == 0) {
+                qe.push(i) ;
+                ans.push_back(indgree[i]) ;
+            }
+        }
+        
+        while(!qe.empty()){
+            int node = qe.front() ;
+            qe.pop() ;
+            
+            for(auto ele : adjlist[node]){
+                indgree[ele]-- ;
+                
+                if(indgree[ele] == 0){
+                     qe.push(ele) ;
+                      ans.push_back(ele) ;
+                }
+            }
+        }
+        if(ans.size()!= V) return true  ;
+        else return false  ;
+    }
+};
+
 
 // TC :- 0(N + E) ;
 // SC :- 0(N + N) ;
